@@ -1,0 +1,45 @@
+# Dart/Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.metadata
+build/
+.firebase/
+devtools_options
+package-lock.json
+
+# Platform folders
+android/
+ios/
+linux/
+macos/
+windows/
+web/
+
+# Firebase (keep .firebaserc, gitignore sensitive files)
+firebase/
+
+# Functions/Node
+functions/node_modules/
+**/node_modules/
+
+# Lock files (if this is a package, not an app)
+# pubspec.lock
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.log
+*.swp
+*.swo
+*~
