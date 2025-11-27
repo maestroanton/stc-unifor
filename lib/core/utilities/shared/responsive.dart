@@ -1,63 +1,66 @@
+// Utilitário responsivo
 import 'package:flutter/material.dart';
 
-/// Utilitário para medidas e regras responsivas do app
+/// Utilitário responsivo para lidar com diferentes tamanhos de tela
+/// e fornecer medidas e diretrizes consistentes pelo app
 class Responsive {
-  // Construtor privado — evita instanciação
+  // Construtor privado para evitar instanciação
   Responsive._();
 
   // ==================== PONTOS DE CORTE ====================
 
-  /// Ponto de corte para dispositivos móveis
-  static const double mobileBreakpoint = 600.0;
+  /// Ponto de corte para mobile — telas menores são consideradas móveis
+  static const double mobileBreakpoint = 600.0; // Aumentado de 480
 
-  /// Ponto de corte para tablets pequenos / telefones maiores
+  /// Ponto de corte para small tablet — tablets pequenos e celulares grandes
   static const double smallTabletBreakpoint = 768.0;
 
-  /// Ponto de corte para tablet (entre mobile e desktop)
-  static const double tabletBreakpoint = 1024.0;
+  /// Ponto de corte para tablet — telas entre mobile e desktop
+  static const double tabletBreakpoint =
+      1024.0; // Padrão mais comum para tablet
 
-  /// Ponto de corte para desktop
+  /// Ponto de corte para desktop — telas maiores são consideradas desktop
   static const double desktopBreakpoint = 1200.0;
 
-  /// Ponto de corte para desktops maiores
+  /// Ponto de corte para desktop grande — para telas muito grandes
   static const double largeDesktopBreakpoint = 1440.0;
 
   // ==================== DETECÇÃO DE TIPO DE TELA ====================
 
-  /// True se a largura for considerada móvel
+  /// Retorna true se a largura for considerada mobile
   static bool isMobile(BuildContext context) {
     return MediaQuery.of(context).size.width < mobileBreakpoint;
   }
 
-  /// True se a largura for considerada tablet pequeno
+  /// Retorna true se a largura for considerada small tablet
   static bool isSmallTablet(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return width >= mobileBreakpoint && width < smallTabletBreakpoint;
   }
 
-  /// True se a largura for considerada tablet
+  /// Retorna true se a largura for considerada tablet
   static bool isTablet(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return width >= smallTabletBreakpoint && width < tabletBreakpoint;
   }
 
-  /// True se a largura for considerada desktop
+  /// Retorna true se a largura for considerada desktop
   static bool isDesktop(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return width >= tabletBreakpoint && width < desktopBreakpoint;
   }
 
-  /// True se a largura for considerada desktop grande
+  /// Retorna true se a largura for considerada desktop grande
   static bool isLargeDesktop(BuildContext context) {
     return MediaQuery.of(context).size.width >= largeDesktopBreakpoint;
   }
 
-  /// True se a tela for mobile ou tablet pequeno
+  /// Retorna true se a tela for mobile ou small tablet (telas bem pequenas)
   static bool isSmallScreen(BuildContext context) {
     return MediaQuery.of(context).size.width < smallTabletBreakpoint;
   }
 
-  /// True se a tela for algum tipo de tablet
+  /// Retorna true se a tela for qualquer tipo de tablet
   static bool isAnyTablet(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return width >= mobileBreakpoint && width < tabletBreakpoint;
@@ -65,7 +68,7 @@ class Responsive {
 
   // ==================== VALORES RESPONSIVOS ====================
 
-  /// Retorna um valor conforme o tamanho da tela (detalhado)
+  /// Retorna um valor baseado no tamanho da tela usando todos os pontos de corte
   static T valueDetailed<T>(
     BuildContext context, {
     required T mobile,
@@ -88,7 +91,7 @@ class Responsive {
     return largeDesktop ?? desktop ?? tablet ?? smallTablet ?? mobile;
   }
 
-  /// Retorna um valor conforme o tamanho da tela (simplificado)
+  /// Retorna um valor baseado no tamanho da tela (versão simplificada)
   static T value<T>(
     BuildContext context, {
     required T mobile,
@@ -103,7 +106,7 @@ class Responsive {
     );
   }
 
-  /// Retorna um valor considerando também desktop grande
+  /// Retorna um valor baseado no tamanho da tela com opção para desktop grande
   static T valueWithLarge<T>(
     BuildContext context, {
     required T mobile,
@@ -122,7 +125,7 @@ class Responsive {
 
   // ==================== ESPAÇAMENTO E PADDING ====================
 
-  /// Retorna padding responsivo
+  /// Retorna valores de padding responsivos
   static EdgeInsets padding(BuildContext context) {
     return EdgeInsets.all(
       valueDetailed(
@@ -183,7 +186,7 @@ class Responsive {
     );
   }
 
-  /// Retorna espaçamento pequeno para layouts compactos
+  /// Retorna espaçamento pequeno responsivo para layouts compactos
   static double smallSpacing(BuildContext context) {
     return valueDetailed(
       context,
@@ -218,7 +221,7 @@ class Responsive {
     );
   }
 
-  /// Retorna tamanho de fonte responsivo para corpo de texto
+  /// Retorna tamanho de fonte responsivo para texto body
   static double bodyFontSize(BuildContext context) {
     return valueDetailed(
       context,
@@ -251,9 +254,9 @@ class Responsive {
     );
   }
 
-  // ==================== TAMANHOS DE ÍCONES ====================
+  // ==================== TAMANHOS DE ÍCONE ====================
 
-  /// Retorna tamanho de ícone responsivo (padrão)
+  /// Retorna tamanho responsivo para ícones normais
   static double iconSize(BuildContext context) {
     return valueDetailed(
       context,
@@ -264,7 +267,7 @@ class Responsive {
     );
   }
 
-  /// Retorna tamanho de ícone responsivo (pequeno)
+  /// Retorna tamanho responsivo para ícones pequenos
   static double smallIconSize(BuildContext context) {
     return valueDetailed(
       context,
@@ -275,7 +278,7 @@ class Responsive {
     );
   }
 
-  /// Retorna tamanho de ícone responsivo (grande)
+  /// Retorna tamanho responsivo para ícones grandes
   static double largeIconSize(BuildContext context) {
     return valueDetailed(
       context,
@@ -288,7 +291,7 @@ class Responsive {
 
   // ==================== DIMENSÕES DE BOTÕES ====================
 
-  /// Retorna altura do botão responsiva
+  /// Retorna altura responsiva do botão
   static double buttonHeight(BuildContext context) {
     return valueDetailed(
       context,
@@ -299,7 +302,7 @@ class Responsive {
     );
   }
 
-  /// Retorna padding dos botões responsivo
+  /// Retorna padding responsivo para botões
   static EdgeInsets buttonPadding(BuildContext context) {
     return EdgeInsets.symmetric(
       horizontal: valueDetailed(
@@ -319,7 +322,7 @@ class Responsive {
     );
   }
 
-  /// Retorna constraints responsivas para botões de ícone
+  /// Retorna constraints responsivos para botões ícone
   static BoxConstraints iconButtonConstraints(BuildContext context) {
     final size = valueDetailed(
       context,
@@ -331,7 +334,7 @@ class Responsive {
     return BoxConstraints(minWidth: size, minHeight: size);
   }
 
-  /// Retorna constraints compactas para botões de ícone
+  /// Retorna constraints compactos responsivos para botões ícone
   static BoxConstraints compactIconButtonConstraints(BuildContext context) {
     final size = valueDetailed(
       context,
@@ -345,7 +348,7 @@ class Responsive {
 
   // ==================== DIMENSÕES DE CARTÕES E CONTÊINERES ====================
 
-  /// Retorna raio de borda responsivo
+  /// Retorna border radius responsivo
   static double borderRadius(BuildContext context) {
     return valueDetailed(
       context,
@@ -378,7 +381,7 @@ class Responsive {
     );
   }
 
-  /// Retorna altura do appbar responsiva
+  /// Retorna altura do appBar responsiva
   static double appBarHeight(BuildContext context) {
     return valueDetailed(
       context,
@@ -389,9 +392,9 @@ class Responsive {
     );
   }
 
-  // ==================== GRADE & LISTAS ====================
+  // ==================== LAYOUTS DE GRID E LISTA ====================
 
-  /// Retorna número de colunas da grade conforme o ponto de corte
+  /// Retorna número de colunas do grid responsivo
   static int gridCrossAxisCount(
     BuildContext context, {
     int mobileCount = 2,
@@ -408,7 +411,7 @@ class Responsive {
     );
   }
 
-  /// Contagem inteligente de colunas que se adapta à largura disponível
+  /// Número de colunas inteligente que se adapta à largura disponível
   static int smartGridCrossAxisCount(
     BuildContext context, {
     double minItemWidth = 200.0,
@@ -421,7 +424,7 @@ class Responsive {
     return columns.clamp(minColumns, maxColumns);
   }
 
-  /// Retorna espaçamento da grade responsivo
+  /// Retorna espaçamento do grid responsivo
   static double gridSpacing(BuildContext context) {
     return valueDetailed(
       context,
@@ -432,7 +435,7 @@ class Responsive {
     );
   }
 
-  /// Retorna altura responsiva dos itens de lista
+  /// Retorna altura do item da lista responsiva
   static double listItemHeight(BuildContext context) {
     return valueDetailed(
       context,
@@ -443,86 +446,87 @@ class Responsive {
     );
   }
 
-  // ==================== DIRETIVAS DA SIDEBAR ====================
+  // ==================== DIRETIVAS DE SIDEBAR ====================
 
-  /// Indica se o botão de alternar da sidebar deve ser exibido
+  /// Retorna se a sidebar deve mostrar botão de alternância
   static bool shouldShowSidebarToggle(BuildContext context) {
     return !isMobile(context) && !isSmallTablet(context);
   }
 
-  /// Indica se a sidebar deve estar estendida por padrão
+  /// Retorna se a sidebar deve ficar estendida por padrão
   static bool shouldExtendSidebar(BuildContext context) {
     return isDesktop(context) || isLargeDesktop(context);
   }
 
-  /// Indica se a sidebar deve colapsar automaticamente após navegação
+  /// Retorna se a sidebar deve recolher automaticamente após navegação
   static bool shouldAutoCollapseSidebar(BuildContext context) {
     return isMobile(context) || isSmallTablet(context);
   }
 
-  /// Indica se deve usar um drawer em vez da sidebar
+  /// Retorna se deve mostrar drawer ao invés da sidebar
   static bool shouldUseDrawer(BuildContext context) {
     return isMobile(context);
   }
 
   // ==================== DIRETIVAS DE FORMULÁRIO ====================
 
-  /// Indica se os rótulos dos botões do formulário devem ser exibidos
+  /// Retorna se deve exibir labels ao lado dos botões do formulário
   static bool shouldShowButtonLabels(BuildContext context) {
     return !isMobile(context);
   }
 
-  /// Indica se deve usar layout compacto no formulário
+  /// Retorna se deve usar layout compacto no formulário
   static bool shouldUseCompactForm(BuildContext context) {
     return isMobile(context) || isSmallTablet(context);
   }
 
-  /// Indica se campos do formulário devem ser empilhados verticalmente
+  /// Retorna se os campos do formulário devem ser empilhados verticalmente
   static bool shouldStackFormFields(BuildContext context) {
     return isMobile(context) || isSmallTablet(context);
   }
 
   // ==================== DIRETIVAS DE NAVEGAÇÃO ====================
 
-  /// Indica se a navegação deve usar apenas ícones
+  /// Retorna se deve mostrar botões de navegação somente com ícones
   static bool shouldUseIconOnlyNavigation(BuildContext context) {
     return isMobile(context);
   }
 
-  /// Indica se os rótulos da navegação devem ser exibidos
+  /// Retorna se deve mostrar labels de navegação
   static bool shouldShowNavigationLabels(BuildContext context) {
     return isDesktop(context) || isLargeDesktop(context);
   }
 
-  /// Indica se deve usar navegação inferior em vez de sidebar
+  /// Retorna se deve usar bottom navigation em vez da sidebar
   static bool shouldUseBottomNavigation(BuildContext context) {
     return isMobile(context);
   }
 
-  // ==================== DIRETIVAS DE TABELAS E LISTAS ====================
+  // ==================== DIRETIVAS DE TABELA E LISTA ====================
 
+  /// Retorna se deve mostrar botões de ação em uma única linha
   static bool shouldUseSingleRowActions(BuildContext context) {
-    return true; // Sempre usar única linha; ajustar tamanho no móvel
+    return true; // Sempre usar única linha, mas reduzir botões em telas mobile
   }
 
-  /// Indica se a paginação deve mostrar somente ícones
+  /// Retorna se a paginação deve ser apenas ícones
   static bool shouldUseIconOnlyPagination(BuildContext context) {
     return isMobile(context) || isSmallTablet(context);
   }
 
-  /// Indica se os itens da lista devem ser compactos
+  /// Retorna se os itens da lista devem ser densos
   static bool shouldUseDenseListItems(BuildContext context) {
     return isMobile(context) || isSmallTablet(context);
   }
 
   // ==================== MÉTODOS AUXILIARES ====================
 
-  /// Retorna a largura da tela
+  /// Retorna largura da tela
   static double screenWidth(BuildContext context) {
     return MediaQuery.of(context).size.width;
   }
 
-  /// Retorna a altura da tela
+  /// Retorna altura da tela
   static double screenHeight(BuildContext context) {
     return MediaQuery.of(context).size.height;
   }
@@ -532,27 +536,27 @@ class Responsive {
     return MediaQuery.of(context).orientation;
   }
 
-  /// Retorna true se a tela estiver em modo landscape
+  /// Retorna se a tela está em modo paisagem
   static bool isLandscape(BuildContext context) {
     return orientation(context) == Orientation.landscape;
   }
 
-  /// Retorna true se a tela estiver em modo portrait
+  /// Retorna se a tela está em modo retrato
   static bool isPortrait(BuildContext context) {
     return orientation(context) == Orientation.portrait;
   }
 
-  /// Retorna padding da área segura
+  /// Retorna padding da safe area
   static EdgeInsets safeArea(BuildContext context) {
     return MediaQuery.of(context).padding;
   }
 
-  /// Retorna a razão de pixels do dispositivo
+  /// Retorna device pixel ratio
   static double pixelRatio(BuildContext context) {
     return MediaQuery.of(context).devicePixelRatio;
   }
 
-  /// Retorna o nome do breakpoint atual (para depuração)
+  /// Retorna nome do breakpoint atual (para debug)
   static String currentBreakpoint(BuildContext context) {
     if (isMobile(context)) return 'Mobile';
     if (isSmallTablet(context)) return 'Small Tablet';
@@ -563,7 +567,7 @@ class Responsive {
   }
 }
 
-/// Extensão de BuildContext para acesso rápido às utilidades responsivas
+/// Extensão em BuildContext para acesso às utilidades responsivas
 extension ResponsiveExtension on BuildContext {
   /// Acesso rápido às utilidades responsivas
   bool get isMobile => Responsive.isMobile(this);

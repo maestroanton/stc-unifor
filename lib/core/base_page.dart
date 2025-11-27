@@ -47,7 +47,7 @@ abstract class ListPageTemplate extends BasePageTemplate {
   Widget buildContent(BuildContext context) {
     return Column(
       children: [
-        // Top section (search, filters, etc.)
+        // Seção superior (busca, filtros, etc.)
         if (buildTopSection(context) != null)
           Container(
             color: AppDesignSystem.surface,

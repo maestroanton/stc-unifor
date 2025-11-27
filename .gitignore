@@ -19,6 +19,7 @@ web/
 
 # Firebase (keep .firebaserc, gitignore sensitive files)
 firebase/
+firebase_options.dart
 
 # Functions/Node
 functions/node_modules/
