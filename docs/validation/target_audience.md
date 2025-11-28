@@ -1,7 +1,35 @@
 # Público-Alvo
 
-O sistema é uma **plataforma web** de gestão empresarial desenvolvida em **Flutter** que integra módulos para controle de inventário e acompanhamento das licenças de funcionamento, com funcionalidades integradas de **OCR** e **inteligência artificial** para processamento automatizado de documentos.
+### 1.1 Administradores (Diretoria)
+- **Função**: financeiro/gerentes operacionais
+- **Nível Técnico**: boa proficiência
+- **Frequência de Uso**: imprevisível
+- **Necessidades Principais (relativas ao caso)**: 
+  - controle sobre o estado atual de itens e sua localização
+  - facilidade para mostrar aos clientes os estados das licenças
+  - necessidade de gerar relatórios e analisar fatos sobre o inventário
+- **Dores/Problemas**: falta de controle específico sobre itens.
 
-A justificação da criação do módulo de inventário se deu a partir da necessidade da empresa de não apenas contabilizar, mas gerenciar os itens em seu inventário, tão como suas localizações e estados de disponibilidade; o módulo de licenças é necessário para o acompanhamento dos profissionais responsáveis tanto pela documentação quanto pela atualização nos meios de comunicação da empresa **STC Transportes**.
+### 1.2 Operadores (Gestores Operacionais)
+- **Função**: operadores de logística
+- **Nível Técnico**: boa proficiência
+- **Frequência de Uso**: ~semanal
+- **Necessidades Principais**:
+  - registrar e informar os registros aos diretores
+- **Dores/Problemas**: necessidade de operação manual destas informações.
 
-Logo, o público-alvo do sistema é a **diretoria da STC Transportes**.
+## 2. Dados Demográficos dos Usuários
+- **Faixa Etária**: 30~40
+- **Escolaridade**: médio completo/técnico. 
+- **Familiaridade Técnica**: boa proficiência.
+- **Dispositivos**: computadores (terminal de trabalho) e celulares.
+
+## 3. Contexto Organizacional
+- **Porte da Empresa**: média empresa de acordo com a classificação do BNDES
+- **Setor**: transportadora.
+- **Localizações**: operação multi-estados.
+- **Tamanho da Equipe**: ~5 usuários.
+
+## 5. Não Destinado Para
+- agentes comerciais
+- conferentes
