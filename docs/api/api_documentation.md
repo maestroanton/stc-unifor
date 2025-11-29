@@ -2,7 +2,7 @@
 
 ## Firebase
 
-**Projeto:** gastc-47718
+**Projeto:** gstc-52174
 
 **Serviços:**
 - Authentication (email/senha)

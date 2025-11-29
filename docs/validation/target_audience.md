@@ -1,7 +1,7 @@
 # Público-Alvo
 
 ### 1.1 Administradores (Diretoria)
-- **Função**: financeiro/gerentes operacionais
+- **Função**: financeiro/gerentes operacionais (Wóstenes Passos e Sávio Moreira)
 - **Nível Técnico**: boa proficiência
 - **Frequência de Uso**: imprevisível
 - **Necessidades Principais (relativas ao caso)**: 
@@ -11,7 +11,7 @@
 - **Dores/Problemas**: falta de controle específico sobre itens.
 
 ### 1.2 Operadores (Gestores Operacionais)
-- **Função**: operadores de logística
+- **Função**: operadores de logística (Karla)
 - **Nível Técnico**: boa proficiência
 - **Frequência de Uso**: ~semanal
 - **Necessidades Principais**:
