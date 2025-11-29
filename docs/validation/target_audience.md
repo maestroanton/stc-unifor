@@ -1,5 +1,7 @@
 # Público-Alvo
 
+Seletos funcionários da STC Transportes (na sede de Fortaleza).
+
 ### 1.1 Administradores (Diretoria)
 - **Função**: financeiro/gerentes operacionais (Wóstenes Passos e Sávio Moreira)
 - **Nível Técnico**: boa proficiência
